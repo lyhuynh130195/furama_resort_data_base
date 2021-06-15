@@ -7,12 +7,12 @@ where ngay_sinh between "1971-01-01" and "2003-01-01" and dia_chi in("Da Nang","
  Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng.
   Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.*/
   
-  select kh.id_khach_hang,kh.ho_ten ,COUNT(kh.id_khach_hang) as total
-  from  khach_hang as kh join hop_dong as hd
+  select kh.id_khach_hang,kh.ho_ten ,COUNT(hd.id_khach_hang) as total
+  from  hop_dong as hd  join  khach_hang as kh
   on kh.id_khach_hang = hd.id_khach_hang
   where kh.id_loai_kh=(select id_loai_kh from loai_khach where ten_loai_khach ="Diamond")
   group by kh.id_khach_hang
-  having COUNT(kh.id_khach_hang)
+  having COUNT(hd.id_khach_hang)
   order by total asc;
   
   
