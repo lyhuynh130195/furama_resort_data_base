@@ -31,19 +31,20 @@ id_dvdk int primary key,
 ten_dvdk varchar(45) not null,
 gia_dvdk int not null,
 don_vi int,
-trang_thai_kha_dung varchar(45));
+status bit);
 
 create table nhan_vien(
 id_nv int primary key,
 ten_nv varchar(45) not null,
+id_vi_tri int,
+id_bo_phan int,
+id_trinh_do int,
 ngay_sinh date,
 so_cmnd varchar(45) not null,
 luong varchar(45),
 sdt varchar(45),
 email varchar(45),
-id_vi_tri int,
-id_bo_phan int,
-id_trinh_do int not null unique,
+dia_chi varchar(45),
 foreign key(id_vi_tri) references vi_tri(id_vi_tri),
 foreign key(id_bo_phan) references bo_phan(id_bo_phan),
 foreign key(id_trinh_do) references trinh_do(id_trinh_do));
@@ -68,7 +69,7 @@ so_nguoi_toi_da int,
 chi_phi_thue varchar(45),
 id_kieu_thue int,
 id_loai_dv int,
-trang_thai varchar(45),
+status bit,
 foreign key(id_kieu_thue) references kieu_thue(id_kieu_thue),
 foreign key(id_loai_dv) references loai_dich_vu(id_loai_dv));
 
@@ -84,7 +85,7 @@ tien_ung int,
 foreign key(id_nv) references nhan_vien(id_nv),
 foreign key(id_khach_hang) references khach_hang(id_khach_hang),
 foreign key(id_dich_vu) references dich_vu(id_dich_vu)
-);
+)
 
 create table hop_dong_chi_tiet(
 id_hdct int primary key,
