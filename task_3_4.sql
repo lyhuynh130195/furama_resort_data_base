@@ -2,7 +2,7 @@
 use furama_resort;
 select*
 from khach_hang
-where ngay_sinh between "1971-01-01" and "2003-01-01" and dia_chi in("Da Nang","Quang Tri");
+where (year(now())-year(ngay_sinh)) between 18 and 50 and dia_chi in("Da Nang","Quang Tri");
 /* 4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần.
  Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng.
   Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.*/
