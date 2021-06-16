@@ -8,10 +8,10 @@ use furama_resort;
 select kh.id_khach_hang,kh.ho_ten,lk.ten_loai_khach,hd.id_hop_dong,dv.ten_dv,hd.ngay_lam_hd,hd.ngay_ket_thuc,
 (dv.chi_phi_thue+dvdk.don_vi*dvdk.gia_dvdk) as tong_tien
 from khach_hang as kh join loai_khach as lk on kh.id_loai_kh = lk.id_loai_kh
-join hop_dong as hd on hd.id_khach_hang=kh.id_khach_hang
+left join hop_dong as hd on hd.id_khach_hang=kh.id_khach_hang
 left join dich_vu as dv on hd.id_dich_vu = dv.id_dich_vu
-join hop_dong_chi_tiet as hdct on hdct.id_hop_dong =hd.id_hop_dong
-join dich_vu_di_kem as dvdk on dvdk.id_dvdk=hdct.id_dvdk;
+left join hop_dong_chi_tiet as hdct on hdct.id_hop_dong =hd.id_hop_dong
+left join dich_vu_di_kem as dvdk on dvdk.id_dvdk=hdct.id_dvdk;
 
 -- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu
 --  của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3)
