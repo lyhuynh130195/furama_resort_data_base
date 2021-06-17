@@ -42,6 +42,8 @@ insert into hop_dong values(5,1,4,1,"2021-02-11","2019-02-12",500,100);
 insert into hop_dong values(6,1,4,1,"2019-02-11","2019-02-18",500,100);
 insert into hop_dong values(7,1,1,2,"2018-02-11","2018-02-18",500,100);
 insert into hop_dong values(8,1,1,1,'2021-04-04','2021-05-11',400,100);
+insert into hop_dong values(9,2,1,1,'2020-04-04','2020-05-11',400,100);
+
 
 
 insert into hop_dong_chi_tiet values(1,1,1,1);
@@ -51,4 +53,5 @@ insert into hop_dong_chi_tiet values(4,4,1,1);
 insert into hop_dong_chi_tiet values(5,5,2,1);
 insert into hop_dong_chi_tiet values(6,6,3,1);
 insert into hop_dong_chi_tiet values(7,7,1,1);
+insert into hop_dong_chi_tiet values(8,7,1,2);
 
