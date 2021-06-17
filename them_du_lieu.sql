@@ -27,18 +27,28 @@ insert into khach_hang values(2,"Nguyen Tuan Anh","1996-11-12","187599886","0999
 insert into khach_hang values(3,"Le Van Luyen","1985-12-10","187599963","0999879777","luyen@gmail.com","Quang Tri",3);
 insert into khach_hang values(4,"Le Bao Binh","2002-10-12","187599213","0999879666","binh@gmail.com","Da Nang",4);
 insert into khach_hang values(5,"Le Van Loi","2005-1-12","187599964","0999879555","loi@gmail.com","Da Nang",5);
+insert into khach_hang values(6,"Le Van Loi","2004-1-12","187599960","0999879556","loi2@gmail.com","Da Nang",1);
 
-insert into dich_vu values(1,"villa",1000,10,10,1000,1,1,1);
-insert into dich_vu values(2,"house",700,7,7,700,2,2,1);
-insert into dich_vu values(3,"room",500,10,null,500,3,3,1);
+insert into dich_vu values(1,"villa_furama",1000,10,10,1000,1,1,1);
+insert into dich_vu values(2,"house_furama",700,7,7,700,2,2,1);
+insert into dich_vu values(3,"room_furama",500,10,null,500,3,3,1);
+
 
 insert into hop_dong values(1,1,1,1,"2021-04-04","2021-04-11",500,100);
 insert into hop_dong values(2,1,1,2,"2021-05-04","2021-05-11",400,100);
 insert into hop_dong values(3,1,3,3,"2021-06-04","2021-06-11",300,100);
 insert into hop_dong values(4,1,4,1,"2021-07-04","2021-07-11",500,100);
+insert into hop_dong values(5,1,4,1,"2021-02-11","2019-02-12",500,100);
+insert into hop_dong values(6,1,4,1,"2019-02-11","2019-02-18",500,100);
+insert into hop_dong values(7,1,1,2,"2018-02-11","2018-02-18",500,100);
+insert into hop_dong values(8,1,1,1,'2021-04-04','2021-05-11',400,100);
+
 
 insert into hop_dong_chi_tiet values(1,1,1,1);
 insert into hop_dong_chi_tiet values(2,2,2,1);
 insert into hop_dong_chi_tiet values(3,3,3,1);
-insert into hop_dong_chi_tiet values(4,4,4,1);
+insert into hop_dong_chi_tiet values(4,4,1,1);
+insert into hop_dong_chi_tiet values(5,5,2,1);
+insert into hop_dong_chi_tiet values(6,6,3,1);
+insert into hop_dong_chi_tiet values(7,7,1,1);
 

@@ -5,13 +5,27 @@
 */
 
 use furama_resort;
-select kh.id_khach_hang,kh.ho_ten,lk.ten_loai_khach,hd.id_hop_dong,dv.ten_dv,hd.ngay_lam_hd,hd.ngay_ket_thuc,
-(dv.chi_phi_thue+dvdk.don_vi*dvdk.gia_dvdk) as tong_tien
-from khach_hang as kh join loai_khach as lk on kh.id_loai_kh = lk.id_loai_kh
-left join hop_dong as hd on hd.id_khach_hang=kh.id_khach_hang
-left join dich_vu as dv on hd.id_dich_vu = dv.id_dich_vu
-left join hop_dong_chi_tiet as hdct on hdct.id_hop_dong =hd.id_hop_dong
-left join dich_vu_di_kem as dvdk on dvdk.id_dvdk=hdct.id_dvdk;
+SELECT 
+    kh.id_khach_hang,
+    kh.ho_ten,
+    lk.ten_loai_khach,
+    hd.id_hop_dong,
+    dv.ten_dv,
+    hd.ngay_lam_hd,
+    hd.ngay_ket_thuc,
+    (dv.chi_phi_thue + dvdk.don_vi * dvdk.gia_dvdk) AS tong_tien
+FROM
+    khach_hang AS kh
+        JOIN
+    loai_khach AS lk ON kh.id_loai_kh = lk.id_loai_kh
+        LEFT JOIN
+    hop_dong AS hd ON hd.id_khach_hang = kh.id_khach_hang
+        LEFT JOIN
+    dich_vu AS dv ON hd.id_dich_vu = dv.id_dich_vu
+        LEFT JOIN
+    hop_dong_chi_tiet AS hdct ON hdct.id_hop_dong = hd.id_hop_dong
+        LEFT JOIN
+    dich_vu_di_kem AS dvdk ON dvdk.id_dvdk = hdct.id_dvdk;
 
 -- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu
 --  của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3)
