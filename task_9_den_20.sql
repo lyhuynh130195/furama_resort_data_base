@@ -81,10 +81,11 @@ group by nv.id_nv
 having count(hd.id_nv) between 1 and 3;
 
 # 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2018 đến tháng 6 năm 2021.
+SET FOREIGN_KEY_CHECKS=OFF;
 delete from nhan_vien
 where id_nv not in (select nhan_vien.id_nv from nhan_vien join hop_dong hd on nhan_vien.id_nv = hd.id_nv
     where hd.ngay_lam_hd  between '2017-12-31'and '2021-05-31');
-
+SET FOREIGN_KEY_CHECKS=ON;
 # 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, chỉ cập nhật những khách hàng
 # đã từng đặt phòng với tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
 create temporary table bang_tam_tinh_tien
