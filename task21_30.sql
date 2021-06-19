@@ -142,11 +142,20 @@ select furama_resort.func_2(4);
 
 
 # 30.	Tạo Stored procedure Sp_3 để tìm các dịch vụ được thuê bởi khách hàng với loại dịch vụ là “Room” từ đầu năm 2015
-# đến hết năm 2019 để xóa thông tin của các dịch vụ đó (tức là xóa các bảng ghi trong bảng DichVu) và xóa những HopDong
+# đến hết năm 2021 để xóa thông tin của các dịch vụ đó (tức là xóa các bảng ghi trong bảng DichVu) và xóa những HopDong
 # sử dụng dịch vụ liên quan (tức là phải xóa những bản gi trong bảng HopDong) và những bản liên quan khác.
+create temporary table dich_vu_room
+select dv.id_dich_vu,hd.id_hop_dong,hdct.id_hdct
+    from dich_vu dv join hop_dong hd on dv.id_dich_vu = hd.id_dich_vu
+join loai_dich_vu ldv on ldv.id_loai_dv = dv.id_loai_dv
+join hop_dong_chi_tiet hdct on hd.id_hop_dong = hdct.id_hop_dong
+where ldv.ten_dv='room' and year(hd.ngay_lam_hd) between '2014' and '2022';
+
 delimiter //
 create procedure sp_3()
 begin
-
+delete from hop_dong_chi_tiet where id_hdct in(select id_hdct from dich_vu_room);
+delete from hop_dong where id_hop_dong in(select  id_hop_dong from dich_vu_room);
+delete from dich_vu where id_dich_vu in(select id_dich_vu from dich_vu_room);
 end //
 delimiter ;
